@@ -1,9 +1,22 @@
+import useAxiosPublic from "../../../../admin/src/hooks/useAxiosPublic";
 import Card from "../../components/Card";
+import { useQuery } from '@tanstack/react-query'
 
 
 
 const FeaturedProduct = () => {
-   const products = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,];
+   const axiosPublic = useAxiosPublic();
+
+   const { data: products = [] } = useQuery({
+      queryKey: ['product'],
+      queryFn: async () => {
+         const res = await axiosPublic('/product/featured');
+         return res.data;
+      }
+   })
+
+
+
    return (
       <div className="max-w-7xl mx-auto">
          <div className='text-center space-y-4 pb-10'>
@@ -14,7 +27,7 @@ const FeaturedProduct = () => {
          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
 
             {
-               products.map(product => <Card product={product} />)
+               products.map(product => <Card product={product} key={product._id}/>)
             }
 
          </div>
