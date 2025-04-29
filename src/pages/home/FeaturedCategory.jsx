@@ -14,19 +14,19 @@ import camera from '../../assets/category/action-camera-48x48.png'
 import earphone from '../../assets/category/earphone-48x48.png'
 
 const featured = [
-   { image: drone, title: 'Drone', path: '/drone' },
-   { image: gimbal, title: 'Gimbal', path: '/gimbal' },
-   { image: fan, title: 'Fan', path: '/fan' },
-   { image: scale, title: 'Weight Scale', path: '/weight-scale' },
-   { image: tv, title: 'TV', path: '/tv' },
-   { image: phone, title: 'Mobile Phone', path: '/mobile-phone' },
-   { image: accessories, title: 'Phone Accessories', path: '/phone-accessories' },
-   { image: ssd, title: 'Portable SSD', path: '/portable-ssd' },
-   { image: wifi, title: 'IP Camera', path: '/ip-camera' },
-   { image: trimmer, title: 'Trimmer', path: '/trimmer' },
-   { image: watch, title: 'Smart Watch', path: '/smart-watch' },
-   { image: camera, title: 'Action Camera', path: '/action-camera' },
-   { image: earphone, title: 'Earphone', path: '/earphone' }
+   { image: drone, title: 'Drone', path: '/product?category=drone' },
+   { image: gimbal, title: 'Gimbal', path: '/product?category=gimbal' },
+   { image: fan, title: 'Fan', path: '/product?category=fan' },
+   { image: scale, title: 'Weight Scale', path: '/product?category=weight-scale' },
+   { image: tv, title: 'TV', path: '/product?category=tv' },
+   { image: phone, title: 'Mobile Phone', path: '/product?category=mobile-phone' },
+   { image: accessories, title: 'Phone Accessories', path: '/product?category=phone-accessories' },
+   { image: ssd, title: 'Portable SSD', path: '/product?category=portable-ssd' },
+   { image: wifi, title: 'IP Camera', path: '/product?category=ip-camera' },
+   { image: trimmer, title: 'Trimmer', path: '/product?category=trimmer' },
+   { image: watch, title: 'Smart Watch', path: '/product?category=smart-watch' },
+   { image: camera, title: 'Action Camera', path: '/product?category=action-camera' },
+   { image: earphone, title: 'Earphone', path: '/product?category=earphone' }
 ];
 
 const FeaturedCategory = () => {

@@ -10,7 +10,8 @@ const CardDetails = () => {
    console.log(path.id);
    const axiosPublic = useAxiosPublic();
 
-   const { data: product, isLoading, isPending } = useQuery({
+   const { data: product, isLoading: productLoading, isPending: productPending
+   } = useQuery({
       queryKey: ['product', path?.id],
       queryFn: async () => {
          const res = await axiosPublic.get(`/product/${path.id}`)
@@ -19,7 +20,7 @@ const CardDetails = () => {
    })
 
 
-   const { data: products} = useQuery({
+   const { data: products, isLoading, isPending } = useQuery({
       queryKey: ['products'],
       queryFn: async () => {
          const res = await axiosPublic.get('/product/inStock')
@@ -27,7 +28,7 @@ const CardDetails = () => {
       }
    })
 
-   if (isLoading || isPending) {
+   if (isLoading || isPending || productLoading || productPending) {
       return <div className='absolute left-0 top-0 w-full h-screen z-50 border flex items-center justify-center'>
          <MoonLoader color="#fa8001" />
       </div>
@@ -74,7 +75,7 @@ const CardDetails = () => {
                         {item}
                      </li>)
                   }
-                  
+
 
                </ul>
 
@@ -95,7 +96,7 @@ const CardDetails = () => {
             <h2 className="font-semibold text-gray-800/90 text-xl text-center py-20">RELATED PRODUCTS</h2>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-               {products.slice(0, 5).map(product =><Card product={product}/>)}
+               {products.slice(0, 5).map(product => <Card product={product} />)}
             </div>
          </div>
       </div>
